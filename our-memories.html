@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Memories</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #e91e63;
+      margin-bottom: 30px;
+    }
+    .box-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .box {
+      width: 160px;
+      height: 160px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .box img {
+      width: 40px;
+      margin-bottom: 10px;
+    }
+    #gallery, #mail {
+      margin-top: 30px;
+      display: none;
+    }
+    #gallery img {
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    .mail-content {
+      background: #ffeef4;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Memories</h1>
+
+  <div class="box-container">
+    <div class="box" onclick="showGallery()">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Heart" />
+      <div>Memories</div>
+    </div>
+    <div class="box" onclick="showMail()">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Mail" />
+      <div>Mailbox</div>
+    </div>
+  </div>
+
+  <div id="gallery">
+    <img id="memImage" src="https://i.postimg.cc/hPpPbG49/memory1.jpg" alt="Memory" />
+  </div>
+
+  <div id="mail">
+    <div class="mail-content">
+      Dear You,
+
+      ချစ်တယ်ငယ် ဒါမောင်စမ်းလုပ်ထားတာ ပြည့်တော့မပြည့်စုံဘူး နောက်တစ်ခုကို ဒီထက်ပိုမိုက်အောင်လုပ်ပေးမယ် အာဘွား
+      With love,
+      Me 💕
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      "https://i.postimg.cc/2SbDwDmK/IMG-20250120-235210-904.jpg",
+      "https://i.postimg.cc/PqsBQvSC/IMG-20250116-020828-210.jpg",
+      "https://i.postimg.cc/zXy6mFML/IMG-20250110-125300-942.jpg"
+    ];
+    let current = 0;
+
+    function showGallery() {
+      const gallery = document.getElementById("gallery");
+      const img = document.getElementById("memImage");
+      current = (current + 1) % images.length;
+      img.src = images[current];
+      gallery.style.display = "block";
+    }
+
+    function showMail() {
+      document.getElementById("mail").style.display = "block";
+    }
+  </script>
+</body>
+</html>
